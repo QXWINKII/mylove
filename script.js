@@ -123,16 +123,16 @@ function setupComfort() {
   const messageText = $("p", message);
 
   $("#sadBtn").addEventListener("click", () => {
-    messageText.textContent = CONFIG.messages.sad;
-    showComfortMessage();
-    burstHearts();
+  messageText.textContent = "Иди ко мне. Я рядом. Просто закрой глаза и представь, что я тебя обнимаю.";
+  showComfortMessage();
+});
   });
 
   $("#missBtn").addEventListener("click", () => {
-    messageText.textContent = CONFIG.messages.miss;
-    showComfortMessage();
-    burstHearts(12);
-  });
+  messageText.textContent = "Я скучаю по тебе. Очень. И больше всего хочу сейчас не писать тебе об этом, а просто оказаться рядом.";
+  showComfortMessage();
+  burstHearts();
+});
 
   function showComfortMessage() {
     message.classList.remove("is-visible");
