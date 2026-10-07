@@ -123,13 +123,13 @@ function setupComfort() {
   const messageText = $("p", message);
 
   $("#sadBtn").addEventListener("click", () => {
-    messageText.textContent = "Иди ко мне. Я рядом. Просто закрой глаза и представь, что я тебя обнимаю.";
+    messageText.textContent = "Иди сюда. Я мысленно тебя обнимаю.";
     showComfortMessage();
     burstHearts();
   });
 
   $("#missBtn").addEventListener("click", () => {
-    messageText.textContent = "Я скучаю по тебе. Очень. И больше всего хочу сейчас не писать тебе об этом, а просто оказаться рядом.";
+    messageText.textContent = CONFIG.messages.miss;
     showComfortMessage();
     burstHearts(12);
   });
