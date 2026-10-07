@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070708">
+  <meta name="description" content="Личное послание. Только для моей королевы.">
+  <title>Для моей королевы.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <main id="app">
+    <section class="screen hero" id="hero" aria-labelledby="hero-title">
+      <div class="section-inner hero-inner">
+        <div class="eyebrow reveal">PRIVATE MESSAGE · 01</div>
+        <h1 id="hero-title" class="hero-title reveal delay-1"></h1>
+        <p id="hero-copy" class="hero-copy reveal delay-2"></p>
+        <button class="button button-primary reveal delay-3" id="openBtn" type="button">
+          <span></span><span id="openBtnText"></span><span class="button-arrow">↗</span>
+        </button>
+        <div class="scroll-hint reveal delay-4" aria-hidden="true"><span></span>листай</div>
+      </div>
+    </section>
+
+    <section class="screen message-screen" id="messages" aria-labelledby="messages-title">
+      <div class="section-inner">
+        <div class="eyebrow">PRIVATE MESSAGE · 02</div>
+        <h2 id="messages-title" class="section-title"></h2>
+        <p id="messages-copy" class="section-copy"></p>
+
+        <div class="cards" id="messageCards">
+          <button class="glass-card" data-message="why" type="button">
+            <span class="card-number">01</span>
+            <span class="card-title"></span>
+            <span class="card-plus">+</span>
+          </button>
+          <button class="glass-card" data-message="want" type="button">
+            <span class="card-number">02</span>
+            <span class="card-title"></span>
+            <span class="card-plus">+</span>
+          </button>
+          <button class="glass-card" data-message="aboutMe" type="button">
+            <span class="card-number">03</span>
+            <span class="card-title"></span>
+            <span class="card-plus">+</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="message-modal" id="messageModal" aria-hidden="true">
+        <div class="message-modal-backdrop" data-close-message></div>
+        <article class="message-panel" role="dialog" aria-modal="true" aria-labelledby="messagePanelTitle">
+          <button class="icon-button close-message" type="button" aria-label="Закрыть" data-close-message>×</button>
+          <div class="eyebrow" id="messagePanelEyebrow">01</div>
+          <h3 id="messagePanelTitle"></h3>
+          <p id="messagePanelText"></p>
+          <div class="message-line"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="screen comfort-screen" id="comfort" aria-labelledby="comfort-title">
+      <div class="section-inner center">
+        <div class="eyebrow">PRIVATE MESSAGE · 03</div>
+        <h2 id="comfort-title" class="section-title"></h2>
+        <p id="comfort-copy" class="section-copy"></p>
+
+        <div class="comfort-actions">
+          <button class="round-action" id="sadBtn" type="button">
+            <span class="round-action-label"></span>
+            <span class="round-action-mark">↘</span>
+          </button>
+          <button class="text-action" id="missBtn" type="button">
+            <span></span>
+            <b>→</b>
+          </button>
+        </div>
+
+        <div class="comfort-message" id="comfortMessage" aria-live="polite">
+          <span class="comfort-message-mark">“</span>
+          <p></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen countdown-screen" id="countdown" aria-labelledby="countdown-title">
+      <div class="section-inner center">
+        <div class="eyebrow">PRIVATE MESSAGE · 04</div>
+        <h2 id="countdown-title" class="section-title"></h2>
+
+        <div class="countdown" id="countdownTimer" aria-label="Обратный отсчёт">
+          <div class="time-unit"><strong data-unit="days">00</strong><span>дней</span></div>
+          <i>:</i>
+          <div class="time-unit"><strong data-unit="hours">00</strong><span>часов</span></div>
+          <i>:</i>
+          <div class="time-unit"><strong data-unit="minutes">00</strong><span>минут</span></div>
+          <i>:</i>
+          <div class="time-unit"><strong data-unit="seconds">00</strong><span>секунд</span></div>
+        </div>
+
+        <div class="countdown-complete" id="countdownComplete" hidden>
+          <span>01 / 01</span>
+          <strong id="countdownCompleteTitle"></strong>
+          <p id="countdownCompleteText"></p>
+        </div>
+
+        <p id="countdown-copy" class="section-copy countdown-copy"></p>
+      </div>
+    </section>
+
+    <section class="screen finale-screen" id="finale" aria-labelledby="finale-title">
+      <div class="section-inner finale-inner">
+        <div class="eyebrow">PRIVATE MESSAGE · 05</div>
+        <div class="finale-copy">
+          <p id="finale-first" class="finale-line"></p>
+          <p id="finale-second" class="finale-line finale-emphasis"></p>
+        </div>
+        <button class="button button-primary finale-button" id="watchBtn" type="button">
+          <span></span><span id="watchBtnText"></span><span class="button-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <div class="video-lightbox" id="videoLightbox" aria-hidden="true">
+    <div class="video-backdrop" data-close-video></div>
+    <div class="video-shell" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+      <div class="video-topline">
+        <span class="eyebrow" id="videoEyebrow">FOR YOU</span>
+        <button class="icon-button" type="button" aria-label="Закрыть видео" data-close-video>×</button>
+      </div>
+      <div class="video-frame">
+        <video id="video" controls playsinline preload="metadata">
+          <source id="videoSource" src="" type="video/mp4">
+          Ваш браузер не поддерживает видео.
+        </video>
+        <div class="video-empty" id="videoEmpty" hidden>
+          <span class="video-empty-mark">○</span>
+          <p id="videoEmptyText"></p>
+        </div>
+      </div>
+      <div class="video-caption">
+        <h2 id="videoTitle"></h2>
+        <p id="videoAfter"></p>
+        <button class="restart-button" id="restartBtn" type="button">
+          <span id="restartBtnText"></span> <b>↗</b>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
