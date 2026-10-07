@@ -407,13 +407,19 @@ button:focus-visible {
 .video-frame {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.1);
   border-radius: 18px;
   background: #020203;
   box-shadow: 0 30px 100px rgba(0,0,0,.6);
 }
-.video-frame video { display: block; width: 100%; height: auto; max-height: 60svh; object-fit: contain; }
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .video-empty { min-height: 45svh; display: grid; place-items: center; align-content: center; gap: 14px; padding: 30px; text-align: center; }
 .video-empty-mark { color: var(--accent-soft); font-size: 38px; }
 .video-empty p { max-width: 360px; color: var(--muted); line-height: 1.6; white-space: pre-line; }
