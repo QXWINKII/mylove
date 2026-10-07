@@ -123,16 +123,30 @@ function setupComfort() {
   const messageText = $("p", message);
 
   $("#sadBtn").addEventListener("click", () => {
-  messageText.textContent = "Иди ко мне. Я рядом. Просто закрой глаза и представь, что я тебя обнимаю.";
-  showComfortMessage();
-});
+    messageText.textContent = "Иди ко мне. Я рядом. Просто закрой глаза и представь, что я тебя обнимаю.";
+    showComfortMessage();
+    burstHearts();
   });
 
   $("#missBtn").addEventListener("click", () => {
-  messageText.textContent = "Я скучаю по тебе. Очень. И больше всего хочу сейчас не писать тебе об этом, а просто оказаться рядом.";
-  showComfortMessage();
-  burstHearts();
-});
+    messageText.textContent = "Я скучаю по тебе. Очень. И больше всего хочу сейчас не писать тебе об этом, а просто оказаться рядом.";
+    showComfortMessage();
+    burstHearts(12);
+  });
+
+  function showComfortMessage() {
+    message.classList.remove("is-visible");
+    requestAnimationFrame(() => message.classList.add("is-visible"));
+
+    screen.classList.remove("bloom");
+    requestAnimationFrame(() => screen.classList.add("bloom"));
+
+    clearTimeout(showComfortMessage.timer);
+    showComfortMessage.timer = setTimeout(() => {
+      message.classList.remove("is-visible");
+    }, 5200);
+  }
+}
 
   function showComfortMessage() {
     message.classList.remove("is-visible");
